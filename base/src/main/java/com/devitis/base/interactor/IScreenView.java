@@ -5,5 +5,7 @@ package com.devitis.base.interactor;
  */
 
 public interface IScreenView {
+    void onShowView();
+    void onHideView();
     void onDestroy();
 }
