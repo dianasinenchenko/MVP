@@ -45,4 +45,5 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:27.1.1'
 
 
+    compile project(path: ':app')
 }

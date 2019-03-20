@@ -1,9 +1,9 @@
-package com.devitis.base.base;
+package com.devitis.mvp_v1.base;
 
 import android.os.Bundle;
 import android.view.View;
 
-import com.devitis.base.LogUtils;
+import com.devitis.mvp_v1.LogUtils;
 
 
 /**
