@@ -36,14 +36,13 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     //retrofit
-    compile'com.squareup.retrofit2:retrofit:2.5.0'
+    compile 'com.squareup.retrofit2:retrofit:2.5.0'
     //json converter
-    compile'com.squareup.retrofit2:converter-gson:2.5.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.5.0'
     //okHttp
-    compile'com.squareup.okhttp3:okhttp:3.2.0'
-
-
-
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    //rw
+    compile 'com.android.support:recyclerview-v7:27.1.1'
 
 
 }

@@ -14,7 +14,13 @@ public class LatLong extends RealmObject {
     private Double placeLat;
     private Double placeLong;
 
-    public LatLong(Double placeLat, Double placeLong) {
+
+    public LatLong() {
+    }
+
+    public LatLong(int id, String placeName, Double placeLat, Double placeLong) {
+        this.id = id;
+        this.placeName = placeName;
         this.placeLat = placeLat;
         this.placeLong = placeLong;
     }
