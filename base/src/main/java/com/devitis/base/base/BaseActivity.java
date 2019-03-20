@@ -12,10 +12,9 @@ import com.devitis.base.interactor.IScreenView;
 import java.lang.ref.WeakReference;
 
 public abstract class BaseActivity extends Activity {
-
     private WeakReference<IScreenView> contentView;
-
     private boolean isActivityVisible;
+
 
     protected abstract boolean isValid();
 
@@ -23,20 +22,33 @@ public abstract class BaseActivity extends Activity {
 
     protected abstract void onCreateUI(Bundle bundle);
 
+    protected BasePresenter<? extends View> presenter() {
+        return null;
+    }
+
     public boolean isActivityVisible() {
         return isActivityVisible;
     }
 
-
-    protected BasePresenter<? extends View> presenter() {
-        return null;
+    public void onBack() {
+        finish();
     }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_base);
+        initDependency();
+        onCreateUI(savedInstanceState);
+    }
+
+    @Override
+    public void setContentView(View view) {
+        if (view instanceof IScreenView) {
+            IScreenView screen = (IScreenView) view;
+            contentView = new WeakReference<IScreenView>(screen);
+        }
+        super.setContentView(view);
     }
 
 
