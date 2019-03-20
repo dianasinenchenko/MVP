@@ -1,5 +1,6 @@
 package com.devitis.base.base;
 
+import android.os.Bundle;
 import android.view.View;
 
 /**
@@ -28,4 +29,9 @@ public abstract class BasePresenter<V extends View> {
     public void onPause() {
 
     }
+
+    public void onSaveInstance(Bundle state) {
+
+    }
+
 }

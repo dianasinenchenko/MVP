@@ -2,6 +2,7 @@ package com.devitis.base.base;
 
 import android.app.Activity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
@@ -13,9 +14,19 @@ import java.lang.ref.WeakReference;
 public abstract class BaseActivity extends Activity {
 
     private WeakReference<IScreenView> contentView;
+
     private boolean isActivityVisible;
 
     protected abstract boolean isValid();
+
+    protected abstract void initDependency();
+
+    protected abstract void onCreateUI(Bundle bundle);
+
+    public boolean isActivityVisible() {
+        return isActivityVisible;
+    }
+
 
     protected BasePresenter<? extends View> presenter() {
         return null;
@@ -74,5 +85,13 @@ public abstract class BaseActivity extends Activity {
             presenter().onResume();
         }
         isActivityVisible = true;
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (presenter() != null) {
+            presenter().onSaveInstance(outState);
+        }
     }
 }
